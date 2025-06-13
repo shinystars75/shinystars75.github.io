@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .result {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Salary Calculator</h1>
+        <label for="basicPay">Enter Basic Pay:</label>
+        <input type="number" id="basicPay" placeholder="Enter amount">
+        <button onclick="calculate()">Calculate</button>
+        
+        <div class="result">
+            <h3>Results:</h3>
+            <p>Basic Pay: <span id="basicResult">0</span></p>
+            <p>30% DRA: <span id="draResult">0</span></p>
+            <p>10% Adhoc Relief 2025: <span id="adhocResult">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const basicPay = parseFloat(document.getElementById('basicPay').value);
+            
+            if (isNaN(basicPay)) {
+                alert("Please enter a valid number");
+                return;
+            }
+            
+            const dra = basicPay * 0.3;
+            const adhoc = basicPay * 0.1;
+            
+            document.getElementById('basicResult').textContent = basicPay.toFixed(2);
+            document.getElementById('draResult').textContent = dra.toFixed(2);
+            document.getElementById('adhocResult').textContent = adhoc.toFixed(2);
+        }
+    </script>
+</body>
+</html>
