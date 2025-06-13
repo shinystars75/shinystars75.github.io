@@ -27,6 +27,13 @@
             margin: 10px 0;
             border-radius: 5px;
         }
+        .total {
+            background: #e6f7ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -37,10 +44,15 @@
         <button onclick="calculate()">Calculate</button>
         
         <div class="result">
-            <h3>Results:</h3>
+            <h3>Breakdown:</h3>
             <p>Basic Pay: <span id="basicResult">0</span></p>
             <p>30% DRA: <span id="draResult">0</span></p>
             <p>10% Adhoc Relief 2025: <span id="adhocResult">0</span></p>
+        </div>
+        
+        <div class="total">
+            <h3>Total Salary:</h3>
+            <p>Basic + DRA + Adhoc Relief: <span id="totalResult">0</span></p>
         </div>
     </div>
 
@@ -55,10 +67,12 @@
             
             const dra = basicPay * 0.3;
             const adhoc = basicPay * 0.1;
+            const total = basicPay + dra + adhoc;
             
             document.getElementById('basicResult').textContent = basicPay.toFixed(2);
             document.getElementById('draResult').textContent = dra.toFixed(2);
             document.getElementById('adhocResult').textContent = adhoc.toFixed(2);
+            document.getElementById('totalResult').textContent = total.toFixed(2);
         }
     </script>
 </body>
